@@ -1,0 +1,3 @@
+/media/data/dev/mav-router-tux/build/CMakeFiles/rebuild_cache.dir
+/media/data/dev/mav-router-tux/build/CMakeFiles/log_test.dir
+/media/data/dev/mav-router-tux/build/CMakeFiles/edit_cache.dir
