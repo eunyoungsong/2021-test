@@ -1,0 +1,6 @@
+[FATAL] Oct 25 2021 10:07:36 [main:6] : fatal
+[ERROR] Oct 25 2021 10:07:36 [main:7] : error
+[WARN]  Oct 25 2021 10:07:36 [main:8] : warn
+[INFO]  Oct 25 2021 10:07:36 [main:9] : info
+[DEBUG] Oct 25 2021 10:07:36 [main:10] : debug
+[TRACE] Oct 25 2021 10:07:36 [main:11] : trace

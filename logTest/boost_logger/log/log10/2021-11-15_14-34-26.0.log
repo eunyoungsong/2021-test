@@ -1,0 +1,3 @@
+[2021-11-15 14:34:26.739729] (0x00007f0583c37740) [info] [main(/home/eunyoung/Documents/dev/log_test/boost_logger/src/boost_log10.cpp:75)] Info Log
+[2021-11-15 14:34:26.739875] (0x00007f0583c37740) [info] [void Test()(/home/eunyoung/Documents/dev/log_test/boost_logger/src/boost_log10.cpp:68)<-main(/home/eunyoung/Documents/dev/log_test/boost_logger/src/boost_log10.cpp:75)] Info Log in Test()
+[2021-11-15 14:34:26.739906] (0x00007f0583c37740) [info] [main(/home/eunyoung/Documents/dev/log_test/boost_logger/src/boost_log10.cpp:75)] app exiting

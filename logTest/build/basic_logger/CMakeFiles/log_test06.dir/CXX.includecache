@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/eunyoung/Documents/dev/log_test/basic_logger/src/log_test06.cpp
+stdio.h
+-
+string.h
+-
+time.h
+-
+unistd.h
+-
+

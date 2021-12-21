@@ -1,2 +1,0 @@
-/usr/bin/x86_64-linux-gnu-ar qc liblog_test.a CMakeFiles/log_test.dir/src/log_test_01.cpp.o
-/usr/bin/x86_64-linux-gnu-ranlib liblog_test.a

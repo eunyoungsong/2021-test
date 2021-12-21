@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/eunyoung/Documents/dev/log_test/boost_logger/src/boost_log_test01.cpp
+boost/log/common.hpp
+-
+boost/log/utility/setup/common_attributes.hpp
+-
+boost/log/sinks/text_ostream_backend.hpp
+-
+boost/log/sinks.hpp
+-
+boost/log/expressions.hpp
+-
+boost/log/utility/record_ordering.hpp
+-
+boost/log/support/date_time.hpp
+-
+boost/utility/empty_deleter.hpp
+-
+

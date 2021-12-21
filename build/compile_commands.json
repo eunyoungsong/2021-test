@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/media/data/dev/mav-router-tux/build",
-  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -g -o CMakeFiles/log_test.dir/src/log_test_01.cpp.o -c /media/data/dev/mav-router-tux/src/log_test_01.cpp",
-  "file": "/media/data/dev/mav-router-tux/src/log_test_01.cpp"
-}
-]

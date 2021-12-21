@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/eunyoung/Documents/dev/log_test/basic_logger/src/log_test08/logger.cpp
+logger.h
+/home/eunyoung/Documents/dev/log_test/basic_logger/src/log_test08/logger.h
+
+/home/eunyoung/Documents/dev/log_test/basic_logger/src/log_test08/logger.h
+iomanip
+-
+iostream
+-
+fstream
+-
+cstdarg
+-
+ctime
+-
+sstream
+-
+cstring
+-
+cstdio
+-
+
+/home/eunyoung/Documents/dev/log_test/basic_logger/src/log_test08/main.cpp
+logger.h
+/home/eunyoung/Documents/dev/log_test/basic_logger/src/log_test08/logger.h
+
