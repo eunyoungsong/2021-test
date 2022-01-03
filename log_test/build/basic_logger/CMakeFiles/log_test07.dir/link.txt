@@ -1,1 +1,0 @@
-/bin/x86_64-linux-gnu-g++-9  -lboost_log -g  -rdynamic CMakeFiles/log_test07.dir/src/log_test07.cpp.o  -o log_test07 

@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>SmMissionDialog.qml</file>
+        <file>MissionLists.qml</file>
+    </qresource>
+</RCC>
