@@ -1,29 +1,21 @@
-import QtQuick              2.3
-import QtQuick.Controls     1.2
+import QtQuick 2.12
+import QtQuick.Controls 1.4  //TableViewColumn
 import QtQuick.Dialogs      1.2
 import QtQuick.Layouts      1.2
-import Qt.labs.qmlmodels 1.0 // delegate
+//import Qt.labs.qmlmodels 1.0 // delegate
 
+import smMission 1.0
+
+
+// Json 추가중
 ApplicationWindow {
-    /*
-    property int margin: 10
-    width: mainLayout.implicitWidth + 5 * margin
-    height: mainLayout.implicitHeight + 2 * margin
-    minimumWidth: mainLayout.Layout.minimumWidth + 2 * margin
-    minimumHeight: mainLayout.Layout.minimumHeight + 2 * margin
-    */
 
     Dialog{
-
-        id: smMissionLists
         visible: true
         title: qsTr("SM Mission Lists")
         width: 350
-
-        //property int currentContact: -1
-
         standardButtons: Dialog.Close
-        onButtonClicked: Qt.quit()
+        onButtonClicked: Qt.quit() // test에서만 사용
 
         SmMissionDialog {
             id: smMissionDialog
@@ -32,18 +24,16 @@ ApplicationWindow {
         ColumnLayout {
             id: mainLayout
             anchors.fill: parent
-            //anchors.margins: smMission.margin
 
             CheckBox {
-                id: edit
-                text: qsTr("Edit")
+                id: editMode
+                text: qsTr("Edit Mode")
                 anchors.right: parent.right
                 checked: false
             }
 
-            // 1행
+            //1행
             Label {
-                //elide: Label.ElideRight
                 text: "Mission Lists"
                 Layout.fillWidth: true
             }
@@ -58,47 +48,92 @@ ApplicationWindow {
                     title: qsTr("Title")
                 }
 
-                model: missionLists
-
-                MissionLists {
-                    id: missionLists
+                JsonController {
+                    id: jsonController
                 }
 
-                //Component.onCompleted: missionLists.selection
+                model: jsonController
+
                 /*
-                MouseArea {
-                    id: ma
-                    anchors.fill: parent
-                    onPressed: {
-                        tableView.currentRow = styleData.row
-                        tableView.selection.select(styleData.row) // <-- select here.
-                    }
+                model: smMissionLists
+
+                SmMissionLists {
+                    id: smMissionLists
                 }
                 */
 
-            } // TableView
+                onClicked: {
+                    console.log("index: " + currentRow + ", path: " + smMissionLists.get(currentRow).path)
+                    //_planMasterController.loadFromSelectedFile()
+                }
 
-            // 2행
+            } // TableView
+            //1행끝
+
+            //2행
             RowLayout {
                 id: rowlayout
-                //Layout.fillWidth: true
                 anchors.right: parent.right
-                enabled: edit.checked
+                enabled: editMode.checked
                 Button {
                     id: addButton
                     text: qsTr("+")
-                    onClicked: smMissionDialog.open()
+                    onClicked: {
+                        smMissionDialog.currentRow = -1
+                        smMissionDialog.open()
+                    }
                 }
                 Button {
                     id: delButton
                     enabled: tableView.currentRow !== -1
                     text: qsTr("-")
                     //onClicked: missionLists.clear()
-                    onClicked: missionLists.remove(tableView.currentRow)
+                    onClicked: removeListCheckPopup.open()
+                }
+                Button {
+                    id: editButton
+                    enabled: tableView.currentRow !== -1
+                    text: qsTr("Edit")
+                    onClicked: {
+                        smMissionDialog.currentRow = tableView.currentRow
+                        smMissionDialog.open()
+                    }
                 }
             }
             // 2행끝
-
         } // ColumnLayout
+
+        Dialog {
+            id: removeListCheckPopup
+            title: qsTr("removeListCheckPopup")
+            standardButtons: "NoButton"
+
+            ColumnLayout {
+                spacing: 20
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                Text { text: "Are you sure you want to delete this List?" }
+
+                RowLayout {
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+                    Button {
+                        text: qsTr("Yes")
+                        onClicked: {
+                            smMissionLists.remove(tableView.currentRow)
+                            tableView.currentRow = -1
+                            removeListCheckPopup.close()
+                        }
+                    }
+                    Button {
+                        text: qsTr("No")
+                        onClicked: removeListCheckPopup.close()
+                    }
+                } //RowLayout
+            } //ColumnLayout
+        } //Dialog
+
     } // Dialog
+
+
 } // ApplicationWindow

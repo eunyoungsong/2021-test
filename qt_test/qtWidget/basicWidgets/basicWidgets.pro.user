@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 5.0.3, 2021-12-22T13:49:55. -->
+<!-- Written by QtCreator 5.0.3, 2022-01-07T17:00:18. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -235,8 +235,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/eunyoung/Documents/test/sm-test/qt_test/basicWidgets/basicWidgets.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eunyoung/Documents/test/sm-test/qt_test/basicWidgets/basicWidgets.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">basicWidgets2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/eunyoung/Documents/test/sm-test/qt_test/qtWidget/basicWidgets/basicWidgets.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eunyoung/Documents/test/sm-test/qt_test/qtWidget/basicWidgets/basicWidgets.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
