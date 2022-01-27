@@ -9,7 +9,6 @@ CONFIG += c++11
 SOURCES += \
         SmMission.cpp \
         SmMissionManager.cpp \
-        SmMissionTableModel.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -27,5 +26,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     SmMission.h \
-    SmMissionManager.h \
-    SmMissionTableModel.h
+    SmMissionManager.h

@@ -21,7 +21,7 @@ Window {
         //selectionStart: textArea.selectionStart
         //selectionEnd: textArea.selectionEnd
         //textColor: colorDialog.color
-        Component.onCompleted: document.fileUrl = "qrc:/example.html"
+        Component.onCompleted: document.fileUrl = "/home/eunyoung/.config/smMission/cppEx01.json";
         onError: {
             errorDialog.text = message
             errorDialog.visible = true

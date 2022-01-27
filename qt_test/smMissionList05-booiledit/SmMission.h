@@ -7,6 +7,7 @@
 
 class SmMission : public QObject
 {
+    //Q_GADGET
     Q_OBJECT
 
 public:
@@ -14,12 +15,12 @@ public:
     SmMission(const SmMission& other)
     {
         _title = other._title;
-        _path = other._path;
+        _filePath = other._filePath;
     };
     SmMission(const QString &title, const QString &path);
 
     Q_INVOKABLE QString title();
-    Q_INVOKABLE QString path();
+    Q_INVOKABLE QString filePath();
 
 
     Q_INVOKABLE void setTitle(QString title);
@@ -31,12 +32,12 @@ public:
     SmMission& operator=(const SmMission& other)
     {
         _title = other._title;
-        _path = other._path;
+        _filePath = other._filePath;
     }
 
 private:
     QString _title;
-    QString _path;
+    QString _filePath;
 
 };
 

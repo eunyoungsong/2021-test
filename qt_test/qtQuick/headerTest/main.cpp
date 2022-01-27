@@ -1,9 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "SmMissionManager.h"
-#include "SmMission.h"
-#include "SmMissionTableModel.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,10 +9,6 @@ int main(int argc, char *argv[])
 #endif
 
     QGuiApplication app(argc, argv);
-
-    qmlRegisterType<SmMissionManager>("smsoft.mission", 1, 0, "SmMissionManager");   // QML 연동
-    qmlRegisterType<SmMission>("smsoft.mission", 1, 0, "SmMission");
-    qmlRegisterType<SmMissionTableModel>("smsoft.mission", 1, 0, "SmMissionTableModel");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

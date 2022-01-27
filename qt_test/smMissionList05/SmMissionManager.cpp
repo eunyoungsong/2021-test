@@ -14,44 +14,59 @@
 
 void SmMissionManager::newList()
 {
-    _missions.clear();
-    _missions.reserve(2);
+    qDebug("eunyoung : Create new list.");
 
-    SmMission smMission01("A-mission", "aaa/aaa/aaa");
+    _missions.clear();
+    _missions.reserve(3); // reserve : 최소한 크기의 요소에 대한 메모리 할당을 시도, int 또는 double 과 같은 유형의 경우에는 resize()가 더 빠름
+
+    SmMission smMission01("A-mission", "/home/eunyoung/aaa");
     _missions.append(smMission01);
 
-    SmMission smMission02("B-mission", "bbb/bbb/bbb");
+    SmMission smMission02("B-mission", "/home/eunyoung/bbb");
     _missions.append(smMission02);
 
-}
-
-
-void SmMissionManager::loadList(const QString &path)
-{
-    QFile loadFile( path );
-
-    if (!loadFile.open(QIODevice::ReadOnly)) {   // 파일을 열 수 없으면 경고
-        qWarning("Couldn't open save file.");
-        //return false;
-        return;
-    }
-
-    QByteArray saveData = loadFile.readAll();
-    loadFile.close();
-
-    QJsonDocument loadDoc(QJsonDocument::fromJson(saveData));
-
-    read(loadDoc.object());
+    SmMission smMission03("C-mission", "/home/eunyoung/ccc");
+    _missions.append(smMission03);
 
 }
 
+const static char saveFileUrl[] = "/home/eunyoung/.config/smMission/smMissionList.json";
 
-void SmMissionManager::saveList(QString &path) const
+void SmMissionManager::loadList()
 {
-    QFile saveFile(path);
+
+//    if(QFile::exists(url) == false) {                               // 파일이 없으면
+//        qDebug("eunyoung : The file does not exist.");
+//        newList();
+//        saveList(url);
+//    }
+//    else {                                                                        // 파일이 있으면
+//        qDebug("eunyoung : The file exist.");
+
+        QFile loadFile(saveFileUrl);
+        if (!loadFile.open(QIODevice::ReadOnly)) {
+            qWarning("eunyoung : Couldn't open load file.");
+            return;
+        }
+
+        QByteArray saveData = loadFile.readAll();
+        loadFile.close();
+
+        QJsonDocument loadDoc(QJsonDocument::fromJson(saveData));
+
+        read(loadDoc.object());
+
+//    }
+
+}
+
+
+void SmMissionManager::saveList() const
+{
+    QFile saveFile(saveFileUrl);
 
     if (!saveFile.open(QIODevice::WriteOnly)) {
-        qWarning("Couldn't open save file.");
+        qWarning("eunyoung : Couldn't open save file.");
         return;
     }
 
@@ -61,13 +76,30 @@ void SmMissionManager::saveList(QString &path) const
 }
 
 
+void SmMissionManager::addList(QString &title, QString &path)
+{
+//    SmMission smMission(title, path);
+//    _missions.append(smMission);
+//    //saveList(saveFileUrl);
+    // 수정중
+}
+
+//void SmMissionManager::deleteList(int row)
+//{
+
+//}
+
+
 
 void SmMissionManager::read(const QJsonObject &json)
 {
-    if(json.contains("missions") && json["missions"].isObject()) {
+    if(json.contains("missions")) {
+        qDebug("eunyoung : read JSON");
+
         QJsonArray missionArray = json["missions"].toArray();
         _missions.clear();
         _missions.reserve(missionArray.size());
+
         for(int index=0; index<missionArray.size(); ++index) {
             QJsonObject missionObject = missionArray[index].toObject();
             SmMission mission;
@@ -75,12 +107,16 @@ void SmMissionManager::read(const QJsonObject &json)
             _missions.append(mission);
         }
     }
+    else {
+        qWarning("eunyoung : Couldn't read JSON.");
+    }
 }
 
 
 
 void SmMissionManager::write(QJsonObject &json) const
 {
+    qDebug("eunyoung : write JSON");
     QJsonArray missionArray;
     for (const SmMission &mission : _missions) {
         QJsonObject missionObject;
@@ -89,3 +125,6 @@ void SmMissionManager::write(QJsonObject &json) const
     }
     json["missions"] = missionArray;
 }
+
+
+

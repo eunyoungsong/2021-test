@@ -12,6 +12,12 @@ Dialog{
 
     standardButtons: "NoButton"
 
+    signal saved(string title, string filePath)
+
+    function createMission() {
+
+    }
+
     GridLayout {
         id: grid
         Layout.alignment: Qt.AlignCenter
@@ -21,6 +27,7 @@ Dialog{
         columnSpacing: 10
         //Layout.fillHeight: true
         //Layout.fillWidth: true
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.right: parent.right
         anchors.left: parent.left
 
@@ -77,14 +84,19 @@ Dialog{
         //3행
         RowLayout {
             Layout.columnSpan: 3
-
-            //anchors.right: parent.right
-            //anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
                 Button {
                     text: qsTr("Save")
                     enabled: 0 < smMissionTitle.text.length && 0 < smFilePath.text.length ? true : false
                     onClicked: {
-                        _missionTableModel.append({title: smMissionTitle.text})
+                        jsonController.setTitle(smMissionTitle.text)
+                        jsonController.setFilePath(smFilePath.text)
+
+                        console.log("Title : " + title())
+
+                        //jsonController.write(JSON)
+                        //smMissionLists.append({title: smMissionTitle.text})
                         smMissionTitle.text = ""
                         smFilePath.text = ""
                         smMissionDialog.close()

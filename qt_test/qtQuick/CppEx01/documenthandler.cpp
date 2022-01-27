@@ -60,7 +60,7 @@ void DocumentHandler::saveAs(const QUrl &arg, const QString &fileType)
 
 
 
-/*
+/*z
 void FileIO::read()
 {
     if(m_source.isEmpty()) {

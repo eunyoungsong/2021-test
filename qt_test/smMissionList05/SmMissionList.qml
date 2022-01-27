@@ -2,25 +2,8 @@ import QtQuick          2.3
 import smsoft.mission 1.0
 
 ListModel {
-    function creatList() {
-        path = "/home/eunyoung/.config/smMission/smMissionList.json";
-        smMissionManager.newList();
-        smMissionManager.loadList(path);
-        smMissionManager.saveList(path);
-    }
 
-    Component.onCompleted: {
-        createList()
-    }
-
-    SmMissionManager {
-        id: smMissionManager
-    }
-
-    SmMission {
-        id: smMission
-    }
-
+    property SmMissionManager missionManager
 
 //    ListElement {
 //        title: "aaaa"
@@ -32,7 +15,7 @@ ListModel {
 //    }
 //    ListElement {
 //        title: "cccc"
-//        path: "file:///home/eunyoung/Documents/00000000.plan"
+//        path: "c-path"
 //    }
 
 }
