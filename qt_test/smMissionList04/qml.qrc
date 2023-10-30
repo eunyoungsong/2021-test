@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>SmMissionList.qml</file>
-        <file>SmMissionDialog.qml</file>
-    </qresource>
-</RCC>
